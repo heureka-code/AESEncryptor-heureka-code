@@ -14,4 +14,4 @@ __doc__ = "AES-Encryptor:\n" + f"\n{'-'*100}\n".join([AESFileEncryptor__doc__, A
 __date__ = "12.03.2021"
 __annotations__ = "Enthält die Klassen für den AES-Encryptor und dazugrhöriges"
 __status__ = "Development"
-__version__ = "1.0.0"
+__version__ = "1.1.1"

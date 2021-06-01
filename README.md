@@ -30,10 +30,10 @@
     def __repr__(self) -> str
     
     // Gibt die Gleichheit des Arguments mit dem Passwort zurück
-    def __eq__(self) -> bool
+    def __eq__(self, other) -> bool
     
     // Gibt die Ungleichheit des Arguments mit dem Passwort zurück
-    def __ne__(self) -> bool
+    def __ne__(self, other) -> bool
     
     // Gibt die Länge des Passworts zurück
     def __len__(self) -> int

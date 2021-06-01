@@ -7,12 +7,13 @@ from Crypto.Hash import SHA256 as __SHA256
 
 from AESEncryptor_heureka_code.Exceptions import WrongPassword, TextIsNotEncrypted, TextIsEncrypted
 
-__author__ = "heureka42"
+__author__ = "heureka-code"
 __date__ = "11.03.2021"
-__maintainer__ = "heureka42"
+__maintainer__ = "heureka-code"
 __status__ = "Prototype"
 __doc__ = """
 class AESTextEncryptor:
+
     // __init__
     // Nimmt die Argumente:
     //   * passwort, ein String, der das Passwort für die Verschlüsselung ist
@@ -48,6 +49,7 @@ class AESTextEncryptor:
     def __len__(self) -> int
     
     // Und private Methoden
+    
 """
 
 

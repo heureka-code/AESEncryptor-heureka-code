@@ -2,6 +2,7 @@ __date__ = "11.03.2021"
 __status__ = "Development"
 __annotations__ = "Enthält die Exceptions für das Verschlüsseln und Entschlüsseln von Texten"
 __doc__ = """
+
 Text Exceptions:
 
 TextError:
@@ -12,6 +13,7 @@ TextIsEncrypted:
 
 TextIsNotEncrypted:
     wird ausgelöst, wenn Text entschlüsselt werden soll, der gar nicht verschlüsselt worden ist.  
+
 """
 
 

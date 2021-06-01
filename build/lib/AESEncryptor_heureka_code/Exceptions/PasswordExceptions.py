@@ -2,6 +2,7 @@ __date__ = "11.03.2021"
 __status__ = "Development"
 __annotations__ = "Enthält die Exceptions für Passworte"
 __doc__ = """
+
 Passwort Exceptions:
 
 PasswordError:
@@ -9,6 +10,7 @@ PasswordError:
 
 WrongPassword:
     ist die Exception, falls ein falsches Passwort verwendet wurde.
+    
 """
 
 

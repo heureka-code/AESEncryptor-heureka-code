@@ -9,9 +9,9 @@ from Crypto.Hash import SHA256
 
 from AESEncryptor_heureka_code.Exceptions import WrongPassword, FileIsEncrypted, FileIsNotEncrypted
 
-__author__ = "heureka42"
+__author__ = "heureka-code"
 __date__ = "11.03.2021"
-__maintainer__ = "heureka42"
+__maintainer__ = "heureka-code"
 __status__ = "Prototype"
 __doc__ = """
 class AESFileEncryptor:
@@ -44,10 +44,10 @@ class AESFileEncryptor:
     def __repr__(self) -> str
     
     // Gibt die Gleichheit des Arguments mit dem Passwort zurück
-    def __eq__(self) -> bool
+    def __eq__(self, other) -> bool
     
     // Gibt die Ungleichheit des Arguments mit dem Passwort zurück
-    def __ne__(self) -> bool
+    def __ne__(self, other) -> bool
     
     // Gibt die Länge des Passworts zurück
     def __len__(self) -> int
@@ -141,11 +141,9 @@ class AESFileEncryptor:
     def __encrypt(self, file: str, out_file_name, delete_orig_after=False):
         self.__datei_existiert_pruefung(file)
         self.__datei_bereits_verschluesselt_pruefung(file)
-
         filesize = str(getsize(file)).zfill(16)
         IV = Random.new().read(16)
         encrytor = AES.new(self.__get_key_from_password(), AES.MODE_CFB, IV)
-
         with open(file, "rb") as f_input:
             with open(out_file_name, "wb") as f_output:
                 f_output.write(bytes(self.__signaturtext, encoding="utf8"))

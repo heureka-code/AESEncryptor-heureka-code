@@ -2,6 +2,7 @@ __date__ = "11.03.2021"
 __status__ = "Development"
 __annotations__ = "Enthält die Exceptions für Passworte"
 __doc__ = """
+
 Datei Exceptions:
 
 FileError:
@@ -12,6 +13,7 @@ FileIsEncrypted:
 
 FileIsNotEncrypted:
     wird ausgelöst, wenn eine Datei entschlüsselt werden soll, die nicht entschlüsselbar ist.
+
 """
 
 
