@@ -6,7 +6,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 setuptools.setup(
     name="AESEncryptor-heureka-code",
-    version="1.1.1",
+    version="1.2.0",
     install_requires=["pycryptodome"],
     author="heureka-code",
     long_description=long_description,
@@ -14,6 +14,6 @@ setuptools.setup(
     license="MIT",
     description="Verschlüsselt Datein und Texte mit AES",
     url="https://github.com/heureka-code/AESEncryptor-heureka-code",
-    download_url="https://github.com/heureka-code/AESEncryptor-heureka-code/archive/refs/tags/1.1.1.tar.gz",
+    download_url="https://github.com/heureka-code/AESEncryptor-heureka-code/archive/refs/tags/1.2.0.tar.gz",
     packages=setuptools.find_packages()
     )

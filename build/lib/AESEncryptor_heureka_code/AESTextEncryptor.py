@@ -1,9 +1,9 @@
-from base64 import b64decode as __b64decode
-from base64 import b64encode as __b64encode
+from base64 import b64decode
+from base64 import b64encode
 
-from Crypto import Random as __Random
-from Crypto.Cipher import AES as __AES
-from Crypto.Hash import SHA256 as __SHA256
+from Crypto import Random
+from Crypto.Cipher import AES
+from Crypto.Hash import SHA256
 
 from AESEncryptor_heureka_code.Exceptions import WrongPassword, TextIsNotEncrypted, TextIsEncrypted
 
@@ -65,11 +65,11 @@ class AESTextEncryptor:
 
         out_bytes = bytes()
         size = str(len(text)).zfill(16)
-        IV = __Random.new().read(16)
-        encrytor = __AES.new(self.__get_key_from_password(), __AES.MODE_CFB, IV)
+        IV = Random.new().read(16)
+        encrytor = AES.new(self.__get_key_from_password(), AES.MODE_CFB, IV)
 
         out_bytes += bytes(self.__signaturtext, encoding="utf8")
-        out_bytes += __SHA256.new(self.__get_key_from_password()).digest()
+        out_bytes += SHA256.new(self.__get_key_from_password()).digest()
         out_bytes += size.encode("utf-8")
         out_bytes += IV
         index = 0
@@ -81,10 +81,10 @@ class AESTextEncryptor:
                 chunk += b" " * (16 - (len(chunk) % 16))
             out_bytes += encrytor.encrypt(chunk)
             index += self.__chunks
-        return str(__b64encode(out_bytes), encoding="utf8")
+        return str(b64encode(out_bytes), encoding="utf8")
 
     def decrypt(self, text: str) -> str:
-        text = __b64decode(text)
+        text = b64decode(text)
         self.__text_kann_mit_passwort_entschlusselt_werden(text)
         self.__text_nicht_verschluesselt_pruefung(text)
         text = text[len(self.__signaturtext)+32:]
@@ -93,7 +93,7 @@ class AESTextEncryptor:
         text = text[16:]
         IV = text[:16]
         text = text[16:]
-        decryptor = __AES.new(self.__get_key_from_password(), __AES.MODE_CFB, IV)
+        decryptor = AES.new(self.__get_key_from_password(), AES.MODE_CFB, IV)
         index = 0
         while True:
             chunk = text[index: index + self.__chunks]
@@ -128,7 +128,7 @@ class AESTextEncryptor:
         return len(self.__passwort)
 
     def __get_key_from_password(self) -> bytes:
-        return __SHA256.new(bytes(self.__passwort, encoding="utf8")).digest()
+        return SHA256.new(bytes(self.__passwort, encoding="utf8")).digest()
 
     def __is_encrypted(self, text):
         return bytes(self.__signaturtext, encoding="utf8") == text[:len(self.__signaturtext)]
@@ -149,7 +149,7 @@ class AESTextEncryptor:
         pass
 
     def __text_kann_mit_passwort_entschlusselt_werden(self, text):
-        if self.__get_text_key(text) != __SHA256.new(self.__get_key_from_password()).digest():
+        if self.__get_text_key(text) != SHA256.new(self.__get_key_from_password()).digest():
             raise WrongPassword
         pass
     pass
