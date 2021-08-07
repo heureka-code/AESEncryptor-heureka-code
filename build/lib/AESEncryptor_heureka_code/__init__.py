@@ -11,7 +11,7 @@ from AESEncryptor_heureka_code.AESTextEncryptor import __doc__ as AESTextEncrypt
 
 __doc__ = "AES-Encryptor:\n" + f"\n{'-'*100}\n".join([AESFileEncryptor__doc__, AESTextEncryptor__doc__,
                                                       AESExceptions__doc__])
-__date__ = "12.03.2021"
+__date__ = "07.08.2021"
 __annotations__ = "Enthält die Klassen für den AES-Encryptor und dazugrhöriges"
 __status__ = "Development"
-__version__ = "1.2.0"
+__version__ = "1.3.0"

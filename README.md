@@ -37,6 +37,8 @@
     
     // Gibt die Länge des Passworts zurück
     def __len__(self) -> int
+
+    // Und Property Methoden
     
     // Sonst nur private Methoden
 
@@ -76,6 +78,8 @@
     // Gibt die Länge des Passworts zurück
     def __len__(self) -> int
     
+    // Und Property Methoden    
+
     // Und private Methoden
 
 ##Exceptions, die ausgelöst werden können

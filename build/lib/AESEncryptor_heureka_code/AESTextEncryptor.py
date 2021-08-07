@@ -48,14 +48,20 @@ class AESTextEncryptor:
     // Gibt die Länge des Passworts zurück
     def __len__(self) -> int
     
+    // Und Property Methoden
+    
     // Und private Methoden
     
 """
 
 
 class AESTextEncryptor:
-    def __init__(self, passwort: str, signaturtext: str = "Gewidmet Lou", chunks: int = 32 * 1024):
-        self.__signaturtext = signaturtext
+    def __init__(self, passwort: str, signaturtext: str = None, chunks: int = 32 * 1024):
+        if signaturtext not in [None, ""]:
+            self.__signaturtext = signaturtext
+        else:
+            self.__signaturtext = "Gewidmet Lou"
+
         self.__chunks = chunks
         self.__passwort = passwort
         pass
@@ -152,4 +158,16 @@ class AESTextEncryptor:
         if self.__get_text_key(text) != SHA256.new(self.__get_key_from_password()).digest():
             raise WrongPassword
         pass
+
+    @property
+    def signaturtext(self) -> str:
+        return self.__signaturtext
+
+    @property
+    def passwort(self) -> str:
+        return self.__passwort
+
+    @property
+    def chunks(self) -> int:
+        return self.__chunks
     pass

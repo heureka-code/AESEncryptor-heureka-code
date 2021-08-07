@@ -52,17 +52,24 @@ class AESFileEncryptor:
     // Gibt die Länge des Passworts zurück
     def __len__(self) -> int
     
+    // Und Property Methoden
+    
     // Sonst nur private Methoden
     
 """
 
 
 class AESFileEncryptor:
-    def __init__(self, passwort: str, signaturtext: str = "Gewidmet Lou", chunks: int = 32*1024):
+    def __init__(self, passwort: str, signaturtext: str = None, chunks: int = 32 * 1024):
         """Initialisiert das Objekt"""
-        self.__signaturtext = signaturtext
-        self.__chunks = chunks
-        self.__passwort = passwort
+
+        if signaturtext not in [None, ""]:
+            self.__signaturtext = signaturtext
+        else:
+            self.__signaturtext = "Gewidmet Lou"
+
+        self.__chunks: int = chunks
+        self.__passwort: str = passwort
         pass
 
     def encrypt(self, file: str, delete_orig_after: bool = False):
@@ -187,4 +194,16 @@ class AESFileEncryptor:
         if delete_orig_after:
             remove(file)
         pass
+
+    @property
+    def signaturtext(self) -> str:
+        return self.__signaturtext
+
+    @property
+    def passwort(self) -> str:
+        return self.__passwort
+
+    @property
+    def chunks(self) -> int:
+        return self.__chunks
     pass
